@@ -39,9 +39,10 @@ class Accounts
      */
     public function createAccount(string $username, string $password)
     {
-        return $this->VPNResellersAPI->post('accounts', [
+        return $this->VPNResellersAPI->post('accounts', ['json' => [
             "username" => $username,
             "password" => $password
+        ]
         ]);
     }
 
@@ -87,9 +88,9 @@ class Accounts
      */
     public function changeAccountPassword(int $id, string $password)
     {
-        return $this->VPNResellersAPI->put('accounts/' . $id . '/change_password', [
+        return $this->VPNResellersAPI->put('accounts/' . $id . '/change_password', ['json' => [
             "password" => $password
-        ]);
+        ]]);
     }
 
 }
