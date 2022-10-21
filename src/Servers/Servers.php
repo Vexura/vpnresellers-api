@@ -3,6 +3,7 @@
 
 namespace VPNResellersAPI\Servers;
 
+use GuzzleHttp\Exception\GuzzleException;
 use VPNResellersAPI\VPNResellersAPI;
 
 class Servers
@@ -16,6 +17,7 @@ class Servers
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function getServers()
     {

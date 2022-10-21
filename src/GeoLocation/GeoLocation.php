@@ -3,6 +3,7 @@
 
 namespace VPNResellersAPI\GeoLocation;
 
+use GuzzleHttp\Exception\GuzzleException;
 use VPNResellersAPI\VPNResellersAPI;
 
 class GeoLocation
@@ -16,6 +17,7 @@ class GeoLocation
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function getGeoInfo()
     {

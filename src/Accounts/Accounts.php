@@ -1,8 +1,9 @@
 <?php
 
 
-namespace VPNResellersAPI\Accounting;
+namespace VPNResellersAPI\Accounts;
 
+use GuzzleHttp\Exception\GuzzleException;
 use VPNResellersAPI\VPNResellersAPI;
 
 class Accounts
@@ -16,6 +17,7 @@ class Accounts
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function checkUsername(string $username)
     {
@@ -24,6 +26,7 @@ class Accounts
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function listAccounts()
     {
@@ -32,6 +35,7 @@ class Accounts
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function createAccount(string $username, string $password)
     {
@@ -43,6 +47,7 @@ class Accounts
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function getAccount(int $id)
     {
@@ -51,6 +56,7 @@ class Accounts
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function deleteAccount(int $id)
     {
@@ -59,6 +65,7 @@ class Accounts
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function enableAccount(int $id)
     {
@@ -67,6 +74,7 @@ class Accounts
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function disableAccount(int $id)
     {
@@ -75,6 +83,7 @@ class Accounts
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function changeAccountPassword(int $id, string $password)
     {

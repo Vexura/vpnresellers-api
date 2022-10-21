@@ -3,19 +3,15 @@
 
 namespace VPNResellersAPI;
 
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use VPNResellersAPI\Accounting\Accounts;
+use Psr\Http\Message\ResponseInterface;
+use VPNResellersAPI\Accounts\Accounts;
 use VPNResellersAPI\Configuration\Configuration;
-use VPNResellersAPI\Currency\Currency;
 use VPNResellersAPI\Exception\ParameterException;
 use VPNResellersAPI\GeoLocation\GeoLocation;
-use VPNResellersAPI\Networking\Networking;
-use VPNResellersAPI\Products\Server\Server;
 use VPNResellersAPI\Servers\Servers;
-use VPNResellersAPI\Store\Store;
-use VPNResellersAPI\WHMCS\WHMCS;
-use Psr\Http\Message\ResponseInterface;
 
 class VPNResellersAPI
 {
@@ -132,6 +128,9 @@ class VPNResellersAPI
     }
 
 
+    /**
+     * @throws GuzzleException
+     */
     public function get($actionPath, $params = [])
     {
         $response = $this->request($actionPath, $params);
@@ -139,6 +138,9 @@ class VPNResellersAPI
         return $this->processRequest($response);
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function post($actionPath, $params = [])
     {
         $response = $this->request($actionPath, $params, 'POST');
@@ -146,6 +148,9 @@ class VPNResellersAPI
         return $this->processRequest($response);
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function put($actionPath, $params = [])
     {
         $response = $this->request($actionPath, $params, 'PUT');
@@ -153,6 +158,9 @@ class VPNResellersAPI
         return $this->processRequest($response);
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function delete($actionPath, $params = [])
     {
         $response = $this->request($actionPath, $params, 'DELETE');
@@ -160,6 +168,9 @@ class VPNResellersAPI
         return $this->processRequest($response);
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function patch($actionPath, $params = [])
     {
         $response = $this->request($actionPath, $params, 'PATCH');

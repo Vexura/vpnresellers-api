@@ -3,6 +3,7 @@
 
 namespace VPNResellersAPI\Configuration;
 
+use GuzzleHttp\Exception\GuzzleException;
 use VPNResellersAPI\VPNResellersAPI;
 
 class Configuration
@@ -16,6 +17,7 @@ class Configuration
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function getPorts()
     {
@@ -24,6 +26,7 @@ class Configuration
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function getConfiguration(int $serverId, int $portId)
     {
@@ -39,6 +42,7 @@ class Configuration
 
     /**
      * @return array|string
+     * @throws GuzzleException
      */
     public function getWireGuardConfiguration(int $account,int $serverId)
     {
