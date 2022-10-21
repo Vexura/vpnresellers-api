@@ -102,7 +102,7 @@ class VPNResellersAPI
 
         switch ($method) {
             case 'GET':
-                return $this->getHttpClient()->get($url, ['verify' => false, 'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json', 'Authorization' => 'Bearer ' . $this->apiToken, 'json' => $params]]);
+                return $this->getHttpClient()->get($url, ['verify' => false, 'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json', 'Authorization' => 'Bearer ' . $this->apiToken]]);
             case 'POST':
                 return $this->getHttpClient()->post($url, ['verify' => false, 'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json', 'Authorization' => 'Bearer ' . $this->apiToken], 'json' => $params]);
             case 'PUT':
