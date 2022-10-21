@@ -6,10 +6,13 @@ namespace VPNResellersAPI;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use VPNResellersAPI\Accounting\Accounts;
+use VPNResellersAPI\Configuration\Configuration;
 use VPNResellersAPI\Currency\Currency;
 use VPNResellersAPI\Exception\ParameterException;
+use VPNResellersAPI\GeoLocation\GeoLocation;
 use VPNResellersAPI\Networking\Networking;
 use VPNResellersAPI\Products\Server\Server;
+use VPNResellersAPI\Servers\Servers;
 use VPNResellersAPI\Store\Store;
 use VPNResellersAPI\WHMCS\WHMCS;
 use Psr\Http\Message\ResponseInterface;
@@ -20,11 +23,9 @@ class VPNResellersAPI
     private $credentials;
     private $apiToken;
     private $accountingHandler;
-    private $serverHandler;
-    private $currencyHandler;
-    private $networkingHandler;
-    private $storeHandler;
-    private $whmcsHandler;
+    private $serversHandler;
+    private $geoLocationHandler;
+    private $configurationHandler;
 
     /**
      * VPNResellersAPI constructor.
@@ -169,10 +170,37 @@ class VPNResellersAPI
     /**
      * @return Accounts
      */
-    public function accounting(): Accounts
+    public function accounts(): Accounts
     {
         if (!$this->accountingHandler) $this->accountingHandler = new Accounts($this);
         return $this->accountingHandler;
+    }
+
+    /**
+     * @return Configuration
+     */
+    public function configuration(): Configuration
+    {
+        if (!$this->configurationHandler) $this->configurationHandler = new Configuration($this);
+        return $this->configurationHandler;
+    }
+
+    /**
+     * @return GeoLocation
+     */
+    public function geoLocation(): GeoLocation
+    {
+        if (!$this->geoLocationHandler) $this->geoLocationHandler = new GeoLocation($this);
+        return $this->geoLocationHandler;
+    }
+
+    /**
+     * @return Servers
+     */
+    public function servers(): Servers
+    {
+        if (!$this->serversHandler) $this->serversHandler = new Servers($this);
+        return $this->serversHandler;
     }
 
 
