@@ -33,27 +33,12 @@ class Configuration
         return $this->VPNResellersAPI->get('configuration?server_id='.$serverId.'&port_id=' . $portId);
     }
 
-/*    //TODO Add Download Feature
-    public function getConfigurationDownload(int $serverId, int $portId)
-    {
-        return $this->VPNResellersAPI->get('configuration/download?server_id='.$serverId.'&port_id=' . $portId);
-    }
-    */
-
     /**
      * @return array|string
      * @throws GuzzleException
      */
     public function getWireGuardConfiguration(int $account,int $serverId)
     {
-        return $this->VPNResellersAPI->get('configuration/'.$account.'/wireguard-configuration?server_id='.$serverId);
+        return $this->VPNResellersAPI->get('accounts/'.$account.'/wireguard-configuration?server_id='.$serverId);
     }
-
-    /*    //TODO Add Download Feature
-    public function getWireGuardConfigurationDownload(int $account,int $serverId)
-    {
-        return $this->VPNResellersAPI->get('configuration/'.$account.'/wireguard-configuration/download?server_id='.$serverId);
-    }
-    */
-
 }
