@@ -15,7 +15,7 @@ class Credentials
     public function __construct(string $token)
     {
         $this->token = $token;
-        $this->url = 'https://api.vpnresellers.com/docs/v3_2/'; // This is the base URL for the API
+        $this->url = 'https://api.vpnresellers.com/v3_2/'; // This is the base URL for the API
     }
 
     public function __toString()
